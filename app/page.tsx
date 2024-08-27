@@ -39,27 +39,13 @@ const GamifiedPortfolio = () => {
     setViewedSections((prev) => new Set(prev).add(tab));
   };
 
-  const handleSkillClick = (skillName: string) => {
+  const handleSkillClick = () => {
     setScore(score + 5);
-    setClickedSkills((prev) => new Set(prev).add(skillName));
-    if (skillName === "JavaScript") {
-      setEasterEggs((prev) => new Set(prev).add("javascript_egg"));
-    }
-    if (skillName === "Python") {
-      setEasterEggs((prev) => new Set(prev).add("python_egg"));
-    }
-    if (skillName === "Secret Skill") {
-      setSecretSkillFound(true);
-      setEasterEggs((prev) => new Set(prev).add("secret_skill_egg"));
-    }
   };
 
   const handleProjectClick = (projectId: number) => {
     setScore(score + 5);
     setViewedProjects((prev) => new Set(prev).add(projectId));
-    if (projectId === 2) {
-      setEasterEggs((prev) => new Set(prev).add("weather_app_egg"));
-    }
   };
 
   const unlockAchievement = useCallback(
@@ -91,16 +77,14 @@ const GamifiedPortfolio = () => {
     <div className="bg-gray-900 pt-40 h-screen">
       <div className="max-w-4xl mx-auto p-4 text-gray-100">
         <h1 className="text-4xl font-bold mb-4 text-center text-blue-400">
-          {developer.name}'s Interactive Portfolio
+          {developer.name}&apos;s Portfolio
         </h1>
 
         <Alert className="mb-4 bg-gray-800 border-blue-500">
           <Trophy className="h-4 w-4 text-yellow-400" />
-          <AlertTitle className="text-blue-400">
-            Level {level} Developer
-          </AlertTitle>
+          <AlertTitle className="text-blue-400">Your level: {level}</AlertTitle>
           <AlertDescription className="text-gray-200">
-            Score: {score} | Progress to next level:{" "}
+            Score: {score}
           </AlertDescription>
           <Progress
             value={score % 100}
@@ -132,7 +116,11 @@ const GamifiedPortfolio = () => {
 
         {activeTab === "profile" && <ProfileSection developer={developer} />}
         {activeTab === "skills" && (
-          <SkillsSection skills={skills} onSkillClick={handleSkillClick} />
+          <SkillsSection
+            skills={skills}
+            onSkillClick={handleSkillClick}
+            setClickedSkills={setClickedSkills}
+          />
         )}
         {activeTab === "projects" && (
           <ProjectsSection

@@ -16,9 +16,20 @@ export interface Project {
   tech: string[];
 }
 
+export interface SkillList {
+  name: string;
+  projects: number;
+}
+
 export interface Skill {
   name: string;
   projects: number;
+}
+
+export interface SkillInfo {
+  title: string;
+  link: string;
+  icon: string;
 }
 
 export interface Achievement {
@@ -61,12 +72,24 @@ export const projects: Project[] = [
 ];
 
 export const skills: Skill[] = [
-  { name: "JavaScript", projects: 15 },
-  { name: "React", projects: 12 },
-  { name: "Node.js", projects: 10 },
+  { name: "TypeScript", projects: 15 },
+  { name: "NextJS", projects: 12 },
+  { name: "React", projects: 5 },
+  { name: "NodeJS", projects: 10 },
   { name: "Python", projects: 8 },
   { name: "SQL", projects: 7 },
-  { name: "Secret Skill", projects: 0 },
+];
+
+export const typeScriptSkillInfo: SkillInfo[] = [
+  { title: "Docs", link: "https://www.typescriptlang.org/", icon: "Docs" },
+  { title: "Docs", link: "https://www.typescriptlang.org/", icon: "Docs" },
+  { title: "Docs", link: "https://www.typescriptlang.org/", icon: "Docs" },
+  { title: "Docs", link: "https://www.typescriptlang.org/", icon: "Docs" },
+  { title: "Docs", link: "https://www.typescriptlang.org/", icon: "Docs" },
+  { title: "Docs", link: "https://www.typescriptlang.org/", icon: "Docs" },
+  { title: "Docs", link: "https://www.typescriptlang.org/", icon: "Docs" },
+  { title: "Docs", link: "https://www.typescriptlang.org/", icon: "Docs" },
+  { title: "Docs", link: "https://www.typescriptlang.org/", icon: "Docs" },
 ];
 
 export const achievements: Achievement[] = [
@@ -89,20 +112,6 @@ export const achievements: Achievement[] = [
     name: "Project Connoisseur",
     description: "Viewed all projects",
     icon: "Briefcase",
-    requiredLevel: 0,
-  },
-  {
-    id: 4,
-    name: "Hidden Talent",
-    description: "Found the secret skill",
-    icon: "Eye",
-    requiredLevel: 0,
-  },
-  {
-    id: 5,
-    name: "Easter Egg Hunter",
-    description: "Discovered all hidden messages",
-    icon: "Search",
     requiredLevel: 0,
   },
 ];
