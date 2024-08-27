@@ -51,19 +51,19 @@ export const developer: Developer = {
 export const projects: Project[] = [
   {
     id: 1,
-    nameKey: "projectsList[0].name",
+    nameKey: "0.name",
     descriptionKey: "projectsList.0.description",
     tech: ["React", "Node.js", "MongoDB"],
   },
   {
     id: 2,
-    nameKey: "projectsList[1].name",
+    nameKey: "1.name",
     descriptionKey: "projectsList.1.description",
     tech: ["React", "OpenWeatherAPI"],
   },
   {
     id: 3,
-    nameKey: "projectsList[2].name",
+    nameKey: "2.name",
     descriptionKey: "projectsList.2.description",
     tech: ["Vue.js", "Firebase"],
   },

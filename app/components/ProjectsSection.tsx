@@ -23,11 +23,12 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({
 
   const test = projects[0].nameKey;
   console.log((t as any)[projects[0].nameKey]);
-  console.log(projects[0].nameKey);
+  console.log((t.projectsList as any)[0].name);
+  console.log(t.projectsList[0].name);
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-      {projects.map((project) => (
+      {projects.map((project, index) => (
         <Card
           key={project.id}
           onClick={() => onProjectClick(project.id)}
@@ -35,7 +36,7 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({
         >
           <CardHeader>
             <CardTitle className="text-blue-400">
-              {(t as any)[project.nameKey]}
+              {t.projectsList[index].name}
             </CardTitle>
           </CardHeader>
           <CardContent>
@@ -46,7 +47,7 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({
                   key={tech}
                   className="bg-gray-700 text-blue-400 rounded-full px-3 py-1 text-sm font-semibold"
                 >
-                  {tech} {project.nameKey}
+                  {tech}
                 </span>
               ))}
             </div>
