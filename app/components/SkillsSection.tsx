@@ -7,6 +7,8 @@ import {
 } from "@/app/components/ui/card";
 import { SkillList } from "@/app/data/portfolioData";
 import SkillCard from "@/app/components/SkillCard";
+import { useLanguage } from "@/app/contexts/LanguageContext";
+import { translations } from "@/app/data/translations";
 
 interface SkillsSectionProps {
   skills: SkillList[];
@@ -19,6 +21,8 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({
   onSkillClick,
   setClickedSkills,
 }) => {
+  const { language } = useLanguage();
+  const t = translations[language];
   const maxProjects = Math.max(...skills.map((skill) => skill.projects));
   const [displayedSkill, setDisplayedSkill] = useState<string>("");
 
@@ -29,7 +33,7 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({
   return (
     <Card className="bg-gray-800 border-gray-700">
       <CardHeader>
-        <CardTitle className="text-blue-400">Skills</CardTitle>
+        <CardTitle className="text-blue-400">{t.skills}</CardTitle>
       </CardHeader>
       <CardContent>
         {skills.map((skill) => (

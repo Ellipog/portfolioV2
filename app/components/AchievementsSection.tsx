@@ -7,6 +7,8 @@ import {
 } from "@/app/components/ui/card";
 import { Achievement } from "@/app/data/portfolioData";
 import { Trophy, Star, Briefcase } from "lucide-react";
+import { useLanguage } from "@/app/contexts/LanguageContext";
+import { translations } from "@/app/data/translations";
 
 interface AchievementsSectionProps {
   achievements: Achievement[];
@@ -17,6 +19,9 @@ const AchievementsSection: React.FC<AchievementsSectionProps> = ({
   achievements,
   unlockedAchievements,
 }) => {
+  const { language } = useLanguage();
+  const t = translations[language];
+
   const getIcon = (iconName: string) => {
     switch (iconName) {
       case "Trophy":
@@ -33,7 +38,7 @@ const AchievementsSection: React.FC<AchievementsSectionProps> = ({
   return (
     <Card className="mt-4 bg-gray-800 border-gray-700">
       <CardHeader>
-        <CardTitle className="text-blue-400">Achievements</CardTitle>
+        <CardTitle className="text-blue-400">{t.achievements}</CardTitle>
       </CardHeader>
       <CardContent>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">

@@ -3,7 +3,7 @@ import { LucideIcon } from "lucide-react";
 export interface Developer {
   name: string;
   title: string;
-  description: string;
+  descriptionKey: string;
   email: string;
   github: string;
   linkedin: string;
@@ -11,8 +11,8 @@ export interface Developer {
 
 export interface Project {
   id: number;
-  name: string;
-  description: string;
+  nameKey: string;
+  descriptionKey: string;
   tech: string[];
 }
 
@@ -27,7 +27,7 @@ export interface Skill {
 }
 
 export interface SkillInfo {
-  title: string;
+  titleKey: string;
   link: string;
   icon: string;
 }
@@ -37,14 +37,12 @@ export interface Achievement {
   name: string;
   description: string;
   icon: string;
-  requiredLevel: number;
 }
 
 export const developer: Developer = {
   name: "Elliot Strand Aaen",
   title: "Full Stack Developer",
-  description:
-    "Passionate developer with 5 years of experience in creating web applications. Always eager to learn new technologies and solve complex problems.",
+  descriptionKey: "developer.description",
   email: "john.doe@example.com",
   github: "github.com/johndoe",
   linkedin: "linkedin.com/in/johndoe",
@@ -53,20 +51,20 @@ export const developer: Developer = {
 export const projects: Project[] = [
   {
     id: 1,
-    name: "E-commerce Platform",
-    description: "Built a full-stack e-commerce solution",
+    nameKey: "projectsList[0].name",
+    descriptionKey: "projectsList.0.description",
     tech: ["React", "Node.js", "MongoDB"],
   },
   {
     id: 2,
-    name: "Weather App",
-    description: "Created a responsive weather application",
+    nameKey: "projectsList[1].name",
+    descriptionKey: "projectsList.1.description",
     tech: ["React", "OpenWeatherAPI"],
   },
   {
     id: 3,
-    name: "Task Manager",
-    description: "Developed a Kanban-style task management tool",
+    nameKey: "projectsList[2].name",
+    descriptionKey: "projectsList.2.description",
     tech: ["Vue.js", "Firebase"],
   },
 ];
@@ -81,15 +79,26 @@ export const skills: Skill[] = [
 ];
 
 export const typeScriptSkillInfo: SkillInfo[] = [
-  { title: "Docs", link: "https://www.typescriptlang.org/", icon: "Docs" },
-  { title: "Docs", link: "https://www.typescriptlang.org/", icon: "Docs" },
-  { title: "Docs", link: "https://www.typescriptlang.org/", icon: "Docs" },
-  { title: "Docs", link: "https://www.typescriptlang.org/", icon: "Docs" },
-  { title: "Docs", link: "https://www.typescriptlang.org/", icon: "Docs" },
-  { title: "Docs", link: "https://www.typescriptlang.org/", icon: "Docs" },
-  { title: "Docs", link: "https://www.typescriptlang.org/", icon: "Docs" },
-  { title: "Docs", link: "https://www.typescriptlang.org/", icon: "Docs" },
-  { title: "Docs", link: "https://www.typescriptlang.org/", icon: "Docs" },
+  {
+    titleKey: "skillInfo.TypeScript.0.title",
+    link: "https://www.typescriptlang.org/",
+    icon: "Docs",
+  },
+  {
+    titleKey: "skillInfo.TypeScript.1.title",
+    link: "https://github.com/Ellipog",
+    icon: "Trophy",
+  },
+  {
+    titleKey: "skillInfo.TypeScript.2.title",
+    link: "https://github.com/Ellipog",
+    icon: "Github",
+  },
+  {
+    titleKey: "skillInfo.TypeScript.3.title",
+    link: "https://github.com/Ellipog",
+    icon: "Github",
+  },
 ];
 
 export const achievements: Achievement[] = [
@@ -98,20 +107,17 @@ export const achievements: Achievement[] = [
     name: "Code Explorer",
     description: "Viewed all sections",
     icon: "Trophy",
-    requiredLevel: 0,
   },
   {
     id: 2,
     name: "Skill Enthusiast",
     description: "Clicked on all skills",
     icon: "Star",
-    requiredLevel: 0,
   },
   {
     id: 3,
     name: "Project Connoisseur",
     description: "Viewed all projects",
     icon: "Briefcase",
-    requiredLevel: 0,
   },
 ];

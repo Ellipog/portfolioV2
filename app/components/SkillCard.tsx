@@ -5,9 +5,10 @@ import {
   SkillInfo,
   typeScriptSkillInfo,
 } from "@/app/data/portfolioData";
-import { Code2, FileCode2, Icon, Star, Trophy } from "lucide-react";
+import { FileCode2, Github, Briefcase, Star, Trophy } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { User, Code, Briefcase } from "lucide-react";
+import { useLanguage } from "@/app/contexts/LanguageContext";
+import { translations } from "@/app/data/translations";
 
 interface SkillCardProps {
   skills: Skill;
@@ -25,6 +26,8 @@ const SkillCard: React.FC<SkillCardProps> = ({
   displayedSkill,
 }) => {
   const [display, setDisplay] = useState<boolean>(false);
+  const { language } = useLanguage();
+  const t = translations[language];
 
   const skillInfoList: { [key: string]: any } = {
     TypeScript: typeScriptSkillInfo,
@@ -51,7 +54,7 @@ const SkillCard: React.FC<SkillCardProps> = ({
           <span className="text-gray-200">{skills.name}</span>
           <div className="flex items-center">
             <span className="text-blue-400 mr-2">
-              {skills.projects} projects
+              {skills.projects} {t.projectsText}
             </span>
             <div className="flex">
               {[...Array(5)].map((_, index) => (
@@ -74,27 +77,31 @@ const SkillCard: React.FC<SkillCardProps> = ({
           indicatorClassName="bg-blue-500"
         />
         {displayedSkill === skills.name && (
-          <div className="flex  gap-2 pt-2">
+          <div className="flex gap-2 pt-2 overflow-hidden">
             {skillInfoList[skills.name]?.map(
               (info: SkillInfo, index: number) => {
                 const Icon =
                   info.icon === "Docs"
                     ? FileCode2
-                    : info.icon === "Code"
-                    ? Code
+                    : info.icon === "Trophy"
+                    ? Trophy
+                    : info.icon === "Github"
+                    ? Github
                     : Briefcase;
 
                 return (
                   <button
                     key={index}
-                    className="flex justify-center items-center h-12 w-full rounded-md transition-all bg-gray-600 text-gray-200 hover:bg-gray-500"
+                    className="flex pl-2.5 justify-left items-center h-12 w-full rounded-md transition-all bg-gray-600 text-gray-200 hover:bg-gray-500"
                     onClick={(e) => {
                       e.stopPropagation();
                       window.open(info.link);
                     }}
                   >
                     <Icon size={24} className="mr-2" />
-                    {info.title}
+                    <p className="text-mds">
+                      {(t.skillInfo as any)[skills.name][index].title}
+                    </p>
                   </button>
                 );
               }
