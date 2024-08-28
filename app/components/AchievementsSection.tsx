@@ -42,7 +42,7 @@ const AchievementsSection: React.FC<AchievementsSectionProps> = ({
       </CardHeader>
       <CardContent>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          {achievements.map((achievement) => {
+          {achievements.map((achievement, index) => {
             const Icon = getIcon(achievement.icon);
             return (
               <div
@@ -63,10 +63,10 @@ const AchievementsSection: React.FC<AchievementsSectionProps> = ({
                 />
                 <div className="ml-2">
                   <h3 className="font-semibold text-gray-200">
-                    {achievement.name}
+                    {t.achievementsList[index].name}
                   </h3>
                   <p className="text-sm text-gray-300">
-                    {achievement.description}
+                    {t.achievementsList[index].description}
                   </p>
                 </div>
               </div>

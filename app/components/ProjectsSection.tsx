@@ -40,7 +40,9 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <p className="text-gray-200 mb-2">{t[project.descriptionKey]}</p>
+            <p className="text-gray-200 mb-2">
+              {t.projectsList[index].description}
+            </p>
             <div className="flex flex-wrap gap-2">
               {project.tech.map((tech) => (
                 <span

@@ -4,6 +4,8 @@ import {
   Skill,
   SkillInfo,
   typeScriptSkillInfo,
+  nextJSSkillInfo,
+  reactSkillInfo,
 } from "@/app/data/portfolioData";
 import { FileCode2, Github, Briefcase, Star, Trophy } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -31,6 +33,8 @@ const SkillCard: React.FC<SkillCardProps> = ({
 
   const skillInfoList: { [key: string]: any } = {
     TypeScript: typeScriptSkillInfo,
+    NextJS: nextJSSkillInfo,
+    React: reactSkillInfo,
   };
 
   const handleSkillClick = (skillName: string) => {

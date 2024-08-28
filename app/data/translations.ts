@@ -1,3 +1,6 @@
+import { describe } from "node:test";
+import { achievements } from "./portfolioData";
+
 export const translations = {
   en: {
     portfolio: "Portfolio",
@@ -47,7 +50,33 @@ export const translations = {
         { title: "Project 2" },
         { title: "Project 3" },
       ],
+      NextJS: [
+        { title: "Docs" },
+        { title: "Project 1" },
+        { title: "Project 2" },
+        { title: "Project 3" },
+      ],
+      React: [
+        { title: "Docs" },
+        { title: "Project 1" },
+        { title: "Project 2" },
+        { title: "Project 3" },
+      ],
     },
+    achievementsList: [
+      {
+        name: "Code Explorer",
+        description: "Viewed all sections",
+      },
+      {
+        name: "Skill Enthusiast",
+        description: "Clicked on all skills",
+      },
+      {
+        name: "Project Connoisseur",
+        description: "Viewed all projects",
+      },
+    ],
   },
   no: {
     portfolio: "Portefølje",
@@ -97,6 +126,32 @@ export const translations = {
         { title: "Prosjekt 2" },
         { title: "Prosjekt 3" },
       ],
+      NextJS: [
+        { title: "Docs" },
+        { title: "Project 1" },
+        { title: "Project 2" },
+        { title: "Project 3" },
+      ],
+      React: [
+        { title: "Docs" },
+        { title: "Project 1" },
+        { title: "Project 2" },
+        { title: "Project 3" },
+      ],
     },
+    achievementsList: [
+      {
+        name: "Kode Utforsker",
+        description: "Sett på alle sidene",
+      },
+      {
+        name: "Ferdighets Fanatiker",
+        description: "Klikket på alle ferdighetene",
+      },
+      {
+        name: "Prosjekt Eksperten",
+        description: "Sett på alle prosjektene",
+      },
+    ],
   },
 };
