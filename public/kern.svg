@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- kern favicon — compact "Signal Radar": glowing green core + one inner ring
+     of dots, on a near-black rounded square. Simplified from the full app icon
+     (3 rings → 1 ring) so it stays legible at 16x16 / 32x32 favicon sizes. -->
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" role="img" aria-label="kern">
+  <title>kern</title>
+  <defs>
+    <clipPath id="round">
+      <rect width="64" height="64" rx="12" ry="12"/>
+    </clipPath>
+  </defs>
+  <g clip-path="url(#round)">
+    <rect width="64" height="64" fill="#050506"/>
+    <radialGradient id="b" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#4cf5a0" stop-opacity="0.20"/>
+      <stop offset="100%" stop-color="#4cf5a0" stop-opacity="0"/>
+    </radialGradient>
+    <rect width="64" height="64" fill="url(#b)"/>
+    <!-- inner ring of signal dots -->
+    <g fill="#4cf5a0">
+      <circle cx="32" cy="10" r="2.6"/>
+      <circle cx="48.6" cy="15.4" r="2.6"/>
+      <circle cx="54" cy="32" r="2.6"/>
+      <circle cx="48.6" cy="48.6" r="2.6"/>
+      <circle cx="32" cy="54" r="2.6"/>
+      <circle cx="15.4" cy="48.6" r="2.6"/>
+      <circle cx="10" cy="32" r="2.6"/>
+      <circle cx="15.4" cy="15.4" r="2.6"/>
+    </g>
+    <!-- bright glowing core -->
+    <circle cx="32" cy="32" r="11" fill="#4cf5a0" opacity="0.25"/>
+    <circle cx="32" cy="32" r="7" fill="#4cf5a0"/>
+  </g>
+</svg>

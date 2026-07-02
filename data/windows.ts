@@ -220,6 +220,14 @@ export const projects = {
   icon: "projects.png",
   projects: [
     {
+      name: "kern",
+      link: "https://kern.aaenz.no",
+      image: "kern.svg",
+      year: "2026",
+      description: `A cross-platform desktop server manager for managing any server instance — Minecraft servers, Discord bots, APIs, or any executable. Features a live terminal, plugin extensibility, built-in file editor, and real-time process telemetry. Built with Tauri v2 (Rust + React).`,
+      languages: ["TypeScript", "React", "Rust", "Tauri", "Vite"],
+    },
+    {
       name: "Galdr",
       link: "https://galdr.aaenz.no",
       image: "galdr.ico",
